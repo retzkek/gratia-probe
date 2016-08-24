@@ -150,7 +150,7 @@ def send_to_gratia(event):
     GratiaCore.Send(r)
 
 
-_zone_re = re.compile('\s*ZONE\s*=\s*\"([-+0-9/A-Za-z])\"')
+_zone_re = re.compile('\s*ZONE\s*=\s*\"([-+0-9/A-Za-z]+)\"')
 def get_timezone():
     if os.path.exists("/etc/sysconfig/clock"):
         with open("/etc/sysconfig/clock") as fp:
@@ -171,6 +171,10 @@ def get_timezone():
     raise pytz.UnknownTimeZoneError("Unable to determine system Olson timezone")
 
 
+def total_seconds(td):
+    return td.days * 86400 + td.seconds
+
+
 # Example log line:
 # [142748] Tue Aug  2 21:35:02 2016 :: User foo successfully authorized
 _pytz = get_timezone()
@@ -189,7 +193,7 @@ def process_line_prefix(line):
     pid = int(pid)
     ts = time.strptime(time_formatted, "%a %b  %d %H:%M:%S %Y")
     dt = _pytz.localize(datetime.datetime(*ts[:6]))
-    stamp = (dt-_epoch).total_seconds()
+    stamp = total_seconds(dt-_epoch)
     return pid, stamp, msg
 
 
@@ -232,7 +236,7 @@ def process_one_log(log_fname, events, timestamp, backup_fname=None):
     daemon_pid = -1
     xfer_count = 0
     with open(log_fname, "r") as fp:
-        for line in fp.xreadlines():
+        for line in fp:
             info = process_line_prefix(line)
             if not info:
                 continue
