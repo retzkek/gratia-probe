@@ -150,7 +150,7 @@ def send_to_gratia(event):
     GratiaCore.Send(r)
 
 
-_zone_re = re.compile('\s*ZONE\s*=\s*\"([-+0-9/A-Za-z])\"')
+_zone_re = re.compile('\s*ZONE\s*=\s*\"([-+0-9/A-Za-z]+)\"')
 def get_timezone():
     if os.path.exists("/etc/sysconfig/clock"):
         with open("/etc/sysconfig/clock") as fp:
