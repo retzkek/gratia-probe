@@ -236,7 +236,7 @@ def process_one_log(log_fname, events, timestamp, backup_fname=None):
     daemon_pid = -1
     xfer_count = 0
     with open(log_fname, "r") as fp:
-        for line in fp.xreadlines():
+        for line in fp:
             info = process_line_prefix(line)
             if not info:
                 continue
