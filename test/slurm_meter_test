@@ -19,7 +19,7 @@ from collections import defaultdict
 
 # Add parent directory to import path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from SlurmProbe import SlurmAcct
+import SlurmProbe
 
 class SlurmTest():
     opts    = None
@@ -56,6 +56,9 @@ class SlurmTest():
         parser.add_option("-s", "--start", help="Start time for scanning"
             " accounting table, in epoch seconds [default: last 5 days].",
             type="int", dest="start", default=(time.time() - 5*86400))
+        parser.add_option("-S", "--schema", help="SLURM schema version:"
+            " 1 = <15.08, 2 = >= 15.08 [default: 2].",
+            type="int", dest="schema", default=(2))
 
         # Options are stored into opts/args class variables
         return parser.parse_args()
@@ -82,7 +85,12 @@ class SlurmTest():
         # A dictionary of dictionaries holding ints, default of 0
         total_by_day = defaultdict(lambda: defaultdict(int))
 
-        self.sacct = SlurmAcct(self.conn, self.opts.cluster)
+        if self.opts.schema == 1:
+            self.sacct = SlurmProbe.SlurmAcct_v1(self.conn, self.opts.cluster)
+        elif self.opts.schema == 2:
+            self.sacct = SlurmProbe.SlurmAcct_v2(self.conn, self.opts.cluster)
+        else:
+            raise ValueError('SLURM schema %d is unknown' % (self.opts.schema))
 
         print "Retrieving jobs completed after %s" % \
             time.strftime('%Y-%m-%dT%H:%M:%S', time.gmtime(self.opts.start))
