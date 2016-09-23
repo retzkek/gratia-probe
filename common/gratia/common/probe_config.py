@@ -349,7 +349,8 @@ class ProbeConfiguration:
         return self.__getConfigAttribute('GratiaExtension')
 
     def get_CondorCEHistoryFolder(self):
-        return self.__getConfigAttribute('CondorCEHistoryFolder')
+        _default = "/var/lib/gratia/condorce_data"
+        return self.__getConfigAttribute('CondorCEHistoryFolder') or _default
 
     def get_CertificateFile(self):
         return self.__getConfigAttribute('CertificateFile')
