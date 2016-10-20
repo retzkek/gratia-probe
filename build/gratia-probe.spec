@@ -74,6 +74,9 @@ Prefix: /usr
 Prefix: %{default_prefix}
 Prefix: /etc
 
+# _unitdir,_tmpfilesdir not defined on el6 build hosts
+%{!?_tmpfilesdir: %global _tmpfilesdir %{_prefix}/lib/tmpfiles.d}
+
 # Build preparation.
 %prep
 %setup -q -c
@@ -115,6 +118,13 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT/%{_datadir}/gratia
 install -d $RPM_BUILD_ROOT/%{_sysconfdir}/gratia
+
+%if 0%{?rhel} >= 7
+    install -d  $RPM_BUILD_ROOT%{_tmpfilesdir}
+    mv common/tmpfiles.d/gratia.conf $RPM_BUILD_ROOT%{_tmpfilesdir}/gratia.conf
+%else
+    rm common/tmpfiles.d/gratia.conf
+%endif
 
 %if 0%{?rhel} == 7 || %_arch == noarch
   # Obtain files
@@ -441,7 +451,10 @@ fi
 %{default_prefix}/gratia/common/GetProbeConfigAttribute
 %{default_prefix}/gratia/common/ProbeConfigTemplate
 %{default_prefix}/gratia/common/cron_check
-
+#system.d tmp files
+%if 0%{?rhel} >= 7
+%{_tmpfilesdir}/gratia.conf
+%endif
 # %description common2
 # Common files and examples for Gratia OSG accounting system probes. Version 2.
 
@@ -1006,6 +1019,9 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Mon Sep 19 2016 Edgar Fajardo <emfajard@ucsd.edu> - 1.17.0-2.1
+- Added tmpfiles.d configuration (SOFTWARE-2454)
+
 * Fri Aug 26 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.0-2
 - add versioned dependency on globus-gridftp-server-progs (SOFTWARE-2398)
 
