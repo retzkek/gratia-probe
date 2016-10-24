@@ -1,8 +1,8 @@
 Name:               gratia-probe
 Summary:            Gratia OSG accounting system probes
 Group:              Applications/System
-Version:            1.17.0
-Release:            2%{?dist}
+Version:            1.17.1
+Release:            1%{?dist}
 
 License:            GPL
 Group:              Applications/System
@@ -1019,6 +1019,19 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Thu Oct 20 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.1-1
+- Include OSG patches (SOFTWARE-2454, SOFTWARE-2171, SOFTWARE-2463,
+                       SOFTWARE-2484)
+
+* Fri Oct 14 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.0-2.5
+- Count all allocated CPUs for whole-node PBS jobs (SOFTWARE-2484)
+
+* Fri Sep 23 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.0-2.3
+- Provide default for CondorCEHistoryFolder in code (SOFTWARE-2463)
+
+* Wed Sep 21 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.0-2.2
+- Add patch from Derek W to handle next slurm version (SOFTWARE-2171)
+
 * Mon Sep 19 2016 Edgar Fajardo <emfajard@ucsd.edu> - 1.17.0-2.1
 - Added tmpfiles.d configuration (SOFTWARE-2454)
 
