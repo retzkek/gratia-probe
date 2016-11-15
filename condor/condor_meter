@@ -742,6 +742,8 @@ def classadToJUR(classad):
             r.Grid("Campus", "Campus Factory Usage")
         elif campus_flock_usage.search(classad['MATCH_EXP_JOBGLIDEIN_ResourceName']):
             r.Grid("Campus", "Campus Flocking Usage")
+        elif classad['MATCH_EXP_JOBGLIDEIN_ResourceName'] == "Local Job":
+            r.Grid("Local", "Local execution based on ResourceName")
 
     if 'JobUniverse' in classad:
         # scheduler and local universes are always considered to be local
