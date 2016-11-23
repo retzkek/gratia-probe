@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# @(#)gratia/probe/common:$HeadURL: https://gratia.svn.sourceforge.net/svnroot/gratia/trunk/probe/common/Gratia.py $:$Id$
 
 """
 Gratia Core Probe Library

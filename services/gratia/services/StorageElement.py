@@ -1,4 +1,3 @@
-#@(#)gratia/probe/glue:$HeadURL: https://gratia.svn.sourceforge.net/svnroot/gratia/trunk/probe/glue/StorageElement.py $:$Id: StorageElement.py 3000 2009-02-16 16:15:08Z pcanal $
 
 ## Updated by Brian Bockelman, University of Nebraska-Lincoln (http://rcf.unl.edu)
 

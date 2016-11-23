@@ -1,7 +1,5 @@
 #!/bin/env python
 
-#@(#)gratia/probe/common:$HeadURL$:$Id$
-
 import getopt,sys
 import gratia.common.GratiaCore as GratiaCore
 import gratia.common.bundle as bundle

@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# @(#)gratia/probe/common:$HeadURL$:$Id$
 
 """
 Gratia Job Usage Record Library
