@@ -48,9 +48,6 @@ from gratia.common.GratiaCore import Initialize
 from gratia.common.GratiaCore import Maintenance
 from gratia.common.utils import setProbeBatchManager
 
-from gratia.common.utils import ExtractCvsRevision, ExtractCvsRevisionFromFile, ExtractSvnRevision, ExtractSvnRevisionFromFile
-
-
 # Privates globals
 
 
