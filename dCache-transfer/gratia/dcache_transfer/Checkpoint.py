@@ -1,7 +1,6 @@
 # Copyright 2007 Cornell University, Ithaca, NY. All rights reserved.
 #
 # Author:  Gregory J. Sharp
-# Version: $Id: Checkpoint.py,v 1.2 2008/03/17 17:16:49 greenc Exp $
 #
 # This stores a checkpoint to a file to remember which record was last sent
 # to the Gratia repository. This allows us to begin searching from this

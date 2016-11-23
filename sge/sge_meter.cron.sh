@@ -3,9 +3,6 @@
 # sge_meter.cron.sh - Shell script used with cron to parse sge log 
 #   files for OSG accounting data collection.
 
-# $Id$
-# Full Path: $HeadURL$
-
 Logger='/usr/bin/logger -s -t sge_meter'
 
 # NOTE: some of the comments in this script indicate work still to be done.

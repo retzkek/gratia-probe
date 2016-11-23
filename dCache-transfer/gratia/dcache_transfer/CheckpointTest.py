@@ -1,7 +1,6 @@
 # Copyright 2007 Cornell University, Ithaca, NY. All rights reserved.
 #
 # Author:  Gregory J. Sharp
-# Version: $Id: CheckpointTest.py,v 1.2 2008/03/17 17:16:49 greenc Exp $
 #
 # This program performs some basic unit tests on the Checkpoint module.
 

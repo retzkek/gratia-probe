@@ -1,5 +1,4 @@
 # Copyright 2007 Cornell University, Ithaca, NY. All rights reserved.
-# Version: $Id: README-experts-only.txt,v 1.1 2008/03/17 17:15:46 greenc Exp $
 
 From Gregory Sharp. Modified by Ted Hesselroth and Chris Green.
 
