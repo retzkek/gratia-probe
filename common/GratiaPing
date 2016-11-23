@@ -36,8 +36,7 @@ if __name__ == '__main__':
                         Usage()
                         sys.exit(0)
 
-        rev = "$Revision$"
-        probe_details.RegisterReporter("GratiaPing.py",utils.ExtractSvnRevision(rev))
+        probe_details.RegisterReporter("GratiaPing.py")
 
         GratiaCore.Initialize()
 

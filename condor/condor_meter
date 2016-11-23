@@ -32,7 +32,6 @@ g_alternate_records = {}
 g_probe_config = None
 
 prog_version = "%%%RPMVERSION%%%"
-prog_revision = '$Revision$'
 max_batch_size = 500
 
 min_start_time = time.time() - 120*86400
@@ -329,8 +328,7 @@ def parse_date(date_string):
     return result
 
 def register_gratia():
-    GratiaCore.RegisterReporter("condor_meter", "%s (tag %s)" % \
-        (prog_revision, prog_version))
+    GratiaCore.RegisterReporter("condor_meter")
     try:
         condor_version = getCondorVersion()
     except SystemExit:

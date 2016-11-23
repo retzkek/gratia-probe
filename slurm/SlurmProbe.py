@@ -26,7 +26,6 @@ import re
 from distutils.version import LooseVersion
 
 prog_version = "%%%RPMVERSION%%%"
-prog_revision = '$Revision$'
 
 class SlurmProbe:
 
@@ -150,8 +149,7 @@ class SlurmProbe:
         return version
 
     def register_gratia(self, name):
-        Gratia.RegisterReporter(name, "%s (tag %s)" % \
-            (prog_revision, prog_version))
+        Gratia.RegisterReporter(name)
 
         try:
             slurm_version = self.get_slurm_version()

@@ -26,8 +26,7 @@ localjobid = ''
 endtime = ''
 user = 'Einstein@Home'
 
-rev = '$Revision: 3273 $'
-Gratia.RegisterReporterLibrary('myprobe.py', Gratia.ExtractSvnRevision(rev))
+Gratia.RegisterReporterLibrary('myprobe.py')
 
 for var in flist:
     if var.count('history') > 0:
