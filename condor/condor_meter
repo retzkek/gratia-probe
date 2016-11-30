@@ -551,10 +551,13 @@ def determine_host_description(classad):
 
     If there's no special host description, this returns None.
     """
-    if 'MATCH_EXP_JOBGLIDEIN_ResourceName' not in classad:
+    try:
+        if classad['MATCH_EXP_JOBGLIDEIN_ResourceName'] == 'Local Job':
+            host_descr = GratiaCore.Config.get_SiteName()
+        else:
+            host_descr = classad['MATCH_EXP_JOBGLIDEIN_ResourceName']
+    except KeyError:
         return None
-
-    host_descr = classad['MATCH_EXP_JOBGLIDEIN_ResourceName']
 
     # Check first for SE-based matching.
     if ('DESIRED_SEs' not in classad) or ('MATCH_GLIDEIN_SEs' not in classad):
