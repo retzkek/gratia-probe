@@ -1,7 +1,7 @@
 Name:               gratia-probe
 Summary:            Gratia OSG accounting system probes
 Group:              Applications/System
-Version:            1.17.1
+Version:            1.17.2
 Release:            1%{?dist}
 
 License:            GPL
@@ -1019,11 +1019,24 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Tue Dec 20 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.2-1
+- Use rpm version instead of $Revision$ svn:keyword (SOFTWARE-2538)
+- Include OSG patches (SOFTWARE-2551, SOFTWARE-2532)
+
+* Thu Dec 15 2016 Brian Lin <blin@cs.wisc.edu> - 1.17.0-2.7
+- Populate Gratia record Host Description for local jobs (SOFTWARE-2551)
+
+* Tue Nov 15 2016 Brian Lin <blin@cs.wisc.edu> - 1.17.0-2.6
+- Suppress locally run payload job records (SOFTWARE-2532)
+
 * Thu Oct 20 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.1-1
 - Include OSG patches (SOFTWARE-2454, SOFTWARE-2171, SOFTWARE-2463,
                        SOFTWARE-2484)
 
 * Fri Oct 14 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.0-2.5
+- Only apply PBS patch for arch builds (SOFTWARE-2484)
+
+* Thu Oct 13 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.0-2.4
 - Count all allocated CPUs for whole-node PBS jobs (SOFTWARE-2484)
 
 * Fri Sep 23 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.0-2.3
