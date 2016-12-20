@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# @(#)gratia/probe/common:$HeadURL: https://gratia.svn.sourceforge.net/svnroot/gratia/trunk/probe/common/Gratia.py $:$Id$
 
 """
 Gratia Core Probe Library
@@ -38,7 +37,7 @@ from gratia.common.probe_details import ProbeDetails, RegisterReporter, Register
 from gratia.common.probe_config import ProbeConfiguration
 from gratia.common.sandbox_mgmt import QuarantineFile, SearchOutstandingRecord
 
-from gratia.common.utils import niceNum, InternalError, ExtractCvsRevision, ExtractCvsRevisionFromFile, ExtractSvnRevision, ExtractSvnRevisionFromFile, TimeToString, setProbeBatchManager
+from gratia.common.utils import niceNum, InternalError, TimeToString, setProbeBatchManager
 from gratia.common.debug import Error, DebugPrint, DebugPrintTraceback
 from gratia.common.xml_utils import XmlChecker, escapeXML
 from gratia.common.send import Send, SendXMLFiles, Handshake

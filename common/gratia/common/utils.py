@@ -116,39 +116,12 @@ class InternalError(exceptions.Exception):
     pass
 
 
-def ExtractCvsRevision(revision):
-
-    # Extra the numerical information from the CVS keyword:
-    # $Revision\: $
-
-    return revision.split('$')[1].split(':')[1].strip()
-
-    
-def ExtractCvsRevisionFromFile(filename):
-    pipe = os.popen(r"sed -ne 's/.*\$Revision\: \([^$][^$]*\)\$.*$/\1/p' " + filename)
-    result = None
-    if pipe != None:
-        result = string.strip(pipe.readline())
-        pipe.close()
-    return result
-
-
 def ExtractSvnRevision(revision):
 
     # Extra the numerical information from the SVN keyword:
     # $Revision\: $
 
     return revision.split('$')[1].split(':')[1].strip()
-
-
-def ExtractSvnRevisionFromFile(filename):
-    pipe = os.popen(r"sed -ne 's/.*\$Revision\: \([^$][^$]*\)\$.*$/\1/p' " + filename)
-    result = None
-    if pipe != None:
-        result = string.strip(pipe.readline())
-        pipe.close()
-    return result
-
 
 def TimeToString(targ=None):
     ''' Return the XML version of the given time.  Default to the current time '''

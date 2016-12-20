@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# @(#)gratia/probe/common:$HeadURL$:$Id$
 
 """
 Gratia Job Usage Record Library
@@ -47,9 +46,6 @@ from gratia.common.probe_details import RegisterReporterLibrary, RegisterReporte
 from gratia.common.GratiaCore import Initialize
 from gratia.common.GratiaCore import Maintenance
 from gratia.common.utils import setProbeBatchManager
-
-from gratia.common.utils import ExtractCvsRevision, ExtractCvsRevisionFromFile, ExtractSvnRevision, ExtractSvnRevisionFromFile
-
 
 # Privates globals
 

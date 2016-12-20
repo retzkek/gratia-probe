@@ -1,7 +1,6 @@
 # Copyright 2007 Cornell University, Ithaca, NY. All rights reserved.
 #
 # Author:  Gregory J. Sharp
-# Version: $Id: dCacheBillingAggregator.py,v 1.13 2009/09/03 15:52:06 greenc Exp $
 #
 # This is a Python program that reads the dCache billing database, aggregates
 # any new content, and sends it to Gratia.
@@ -172,10 +171,7 @@ def main():
         #        using the pkg_resource package?
         Gratia.RegisterReporterLibrary( "psycopg2", "2.0.6" )
         #Gratia.RegisterReporterLibrary( "SQLAlchemy", "0.4.1" )
-        rev =  Gratia.ExtractCvsRevision("$Revision: 1.13 $")
-        tag =  Gratia.ExtractCvsRevision("$Name:  $")
-        Gratia.RegisterReporter( "dCacheBillingAggregator.py",
-                                 str(rev) + " (tag " + str(tag) + ")")
+        Gratia.RegisterReporter( "dCacheBillingAggregator.py" )
 
         # BRIAN: attempt to pull the dCache version from RPM.
         version = "UNKNOWN"

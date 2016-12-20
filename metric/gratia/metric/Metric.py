@@ -1,4 +1,3 @@
-#@(#)gratia/probe/metric:$HeadURL$:$Id$
 
 ## Updated by Arvind Gopu, Indiana University (http://peart.ucs.indiana.edu)
 ## More Updates by Arvind Gopu 2007-10-19

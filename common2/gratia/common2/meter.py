@@ -38,7 +38,6 @@ import timeutil
 from probeinput import ProbeInput
 
 prog_version = "%%%RPMVERSION%%%"
-prog_revision = '$Revision$'
 
 
 # This should be added as improvement of Gratia logging in gratia.common.debug
@@ -435,7 +434,7 @@ class GratiaProbe(object):
 
         :return:
         """
-        Gratia.RegisterReporter(self.probe_name, "%s (tag %s)" % (prog_revision, prog_version))
+        Gratia.RegisterReporter(self.probe_name)
 
         try:
             input_version = self.get_version()

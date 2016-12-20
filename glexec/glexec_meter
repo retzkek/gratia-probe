@@ -176,8 +176,7 @@ def main():
     # Make sure we have an exclusive lock for this probe.
     GratiaWrapper.ExclusiveLock()
 
-    rev =  Gratia.ExtractSvnRevision("$Revision$")
-    Gratia.RegisterReporter("glexec_meter.py", str(rev) + " (tag %%%RPMVERSION%%%)")
+    Gratia.RegisterReporter("glexec_meter.py")
     GratiaCore.Initialize(opts.gratia_config)
 
     cename=getCE(Gratia.Config.get_CertificateFile())

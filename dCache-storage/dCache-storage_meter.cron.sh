@@ -3,8 +3,6 @@
 # dcache-storage_meter.cron.sh - Shell script used with cron to parse dcache-storage
 #   files for OSG accounting data collection.
 #      By Chris Green <greenc@fnal.gov>  Began 5 Sept 2006
-# $Id: dCache-storage_meter.cron.sh,v 1.4 2008/09/08 21:35:34 greenc Exp $
-# Full Path: $Source: /cvs/cd/dcache/gratia/dCache-storage/dCache-storage_meter.cron.sh,v $
 ###################################################################
 PGM=$(basename $0)
 Logger="/usr/bin/logger -s -t $PGM"

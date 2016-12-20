@@ -62,9 +62,7 @@ def GetRecord(jobid=0):
 
 
 if __name__ == '__main__':
-    rev = '$Revision$'
-    probe_details.RegisterReporterLibrary('samplemeterecord.py', 
-                                          utils.ExtractSvnRevision(rev))
+    probe_details.RegisterReporterLibrary('samplemeterecord.py')
 
     GratiaCore.Initialize()
 

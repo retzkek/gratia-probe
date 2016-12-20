@@ -10,13 +10,13 @@ from gratia.common.debug import DebugPrint
 
 __handshakeReg__ = []
 
-def RegisterReporterLibrary(name, version):
+def RegisterReporterLibrary(name, version="%%%RPMVERSION%%%"):
     """Register the library named 'name' with version 'version'"""
 
     __handshakeReg__.append(('ReporterLibrary', 'version="' + version[0:254] + '"', name))
 
 
-def RegisterReporter(name, version):
+def RegisterReporter(name, version="%%%RPMVERSION%%%"):
     """Register the software named 'name' with version 'version'"""
 
     __handshakeReg__.append(('Reporter', 'version="' + version[0:254]+ '"', name))
@@ -39,20 +39,16 @@ class ProbeDetails(record.Record):
 
         self.__ProbeDetails__ = []
 
-        # Extract the revision number
-
-        rev = utils.ExtractSvnRevision('$Revision: 3997 $')
-
-        self.ReporterLibrary('Gratia', rev)
+        self.ReporterLibrary('Gratia')
 
         for data in __handshakeReg__:
             self.__ProbeDetails__ = self.AppendToList(self.__ProbeDetails__, data[0], data[1], data[2])
 
-    def ReporterLibrary(self, name, version):
+    def ReporterLibrary(self, name, version="%%%RPMVERSION%%%"):
         self.__ProbeDetails__ = self.AppendToList(self.__ProbeDetails__, 'ReporterLibrary', 'version="' + version[0:254] + '"'
                                               , name)
 
-    def Reporter(self, name, version):
+    def Reporter(self, name, version="%%%RPMVERSION%%%"):
         self.__ProbeDetails__ = self.AppendToList(self.__ProbeDetails__, 'Reporter', 'version="' + version[0:254] + '"', name)
 
     def Service(self, name, version):

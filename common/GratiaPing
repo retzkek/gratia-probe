@@ -1,7 +1,5 @@
 #!/bin/env python
 
-#@(#)gratia/probe/common:$HeadURL$:$Id$
-
 import getopt,sys
 import gratia.common.GratiaCore as GratiaCore
 import gratia.common.bundle as bundle
@@ -38,8 +36,7 @@ if __name__ == '__main__':
                         Usage()
                         sys.exit(0)
 
-        rev = "$Revision$"
-        probe_details.RegisterReporter("GratiaPing.py",utils.ExtractSvnRevision(rev))
+        probe_details.RegisterReporter("GratiaPing.py")
 
         GratiaCore.Initialize()
 

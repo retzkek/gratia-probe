@@ -20,7 +20,6 @@ import gratia.common2.checkpoint as checkpoint
 # package inputs are ahead
 
 prog_version = "%%%RPMVERSION%%%"
-prog_revision = '$Revision: 5268 $'
 
 
 # --- functions -----------------------------------------------------------------------
