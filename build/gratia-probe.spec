@@ -1,7 +1,7 @@
 Name:               gratia-probe
 Summary:            Gratia OSG accounting system probes
 Group:              Applications/System
-Version:            1.17.2
+Version:            1.17.3
 Release:            1%{?dist}
 
 License:            GPL
@@ -1019,6 +1019,9 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Wed Feb 15 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.17.3-1
+- fall back to RequestCpus if MachineAttrCpus0 not in classad (SOFTWARE-2587)
+
 * Tue Dec 20 2016 Carl Edquist <edquist@cs.wisc.edu> - 1.17.2-1
 - Use rpm version instead of $Revision$ svn:keyword (SOFTWARE-2538)
 - Include OSG patches (SOFTWARE-2551, SOFTWARE-2532)
