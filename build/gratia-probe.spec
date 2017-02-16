@@ -663,6 +663,8 @@ Contributed by Andrei Baranovski of the OSG storage team.
 %defattr(-,root,root,-)
 %dir %{default_prefix}/gratia/gridftp-transfer
 %{default_prefix}/gratia/gridftp-transfer/gridftp-transfer_meter
+%doc %{default_prefix}/gratia/gridftp-transfer/README.md
+%doc %{default_prefix}/gratia/gridftp-transfer/LICENSE
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/gratia/gridftp-transfer/ProbeConfig
 %config(noreplace) %{_sysconfdir}/cron.d/gratia-probe-gridftp-transfer.cron
 
