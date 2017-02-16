@@ -713,6 +713,8 @@ def classadToJUR(classad):
 
     if 'MachineAttrCpus0' in classad:
         r.Processors(classad['MachineAttrCpus0'], metric="max")
+    elif 'RequestCpus' in classad:
+        r.Processors(classad['RequestCpus'], metric="max")
 
     if 'MyType' in classad:
         r.AdditionalInfo("CondorMyType", classad['MyType'])
