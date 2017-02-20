@@ -1,7 +1,7 @@
 Name:               gratia-probe
 Summary:            Gratia OSG accounting system probes
 Group:              Applications/System
-Version:            1.17.3
+Version:            1.17.4
 Release:            1%{?dist}
 
 License:            GPL
@@ -1021,6 +1021,9 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Mon Feb 20 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.17.4-1
+- fall back to 1 if no cpus attributes specified in classad (SOFTWARE-2587)
+
 * Wed Feb 15 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.17.3-1
 - fall back to RequestCpus if MachineAttrCpus0 not in classad (SOFTWARE-2587)
 
