@@ -692,10 +692,11 @@ def classadToJUR(classad):
     r.CpuDuration(classad['UserCpuTotal'], "user", "Was entered in seconds")
 
     if 'CompletionDate' in classad and classad['CompletionDate'] > 0:
-        DebugPrint(5, "Current completion time: %s" % classad.eval('CompletionDate'))
         if hasattr(classad, 'eval'):
+            DebugPrint(5, "Current completion time: %s" % classad.eval('CompletionDate'))
             r.EndTime(classad.eval('CompletionDate'), "Was entered in seconds")
         else:
+            DebugPrint(5, "Current completion time: %s" % classad['CompletionDate'])
             r.EndTime(classad['CompletionDate'], "Was entered in seconds")
 
     setIfExists(r.StartTime, classad, 'JobStartDate', "Was entered in seconds")
