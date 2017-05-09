@@ -55,7 +55,6 @@ Source12: %{name}-hadoop-storage-%{version}.tar.bz2
 Source13: %{name}-condor-events-%{version}.tar.bz2
 Source14: %{name}-xrootd-transfer-%{version}.tar.bz2
 Source15: %{name}-xrootd-storage-%{version}.tar.bz2
-Source16: %{name}-bdii-status-%{version}.tar.bz2
 Source17: %{name}-onevm-%{version}.tar.bz2
 Source18: %{name}-slurm-%{version}.tar.bz2
 Source19: %{name}-common2-%{version}.tar.bz2
@@ -129,7 +128,7 @@ install -d $RPM_BUILD_ROOT/%{_sysconfdir}/gratia
 %if 0%{?rhel} == 7 || %_arch == noarch
   # Obtain files
 
-%define noarch_packs common condor sge glexec metric dCache-transfer dCache-storage gridftp-transfer services hadoop-storage condor-events xrootd-transfer xrootd-storage bdii-status onevm slurm common2 enstore-storage enstore-transfer enstore-tapedrive dCache-storagegroup lsf
+%define noarch_packs common condor sge glexec metric dCache-transfer dCache-storage gridftp-transfer services hadoop-storage condor-events xrootd-transfer xrootd-storage onevm slurm common2 enstore-storage enstore-transfer enstore-tapedrive dCache-storagegroup lsf
 
   # PWD is the working directory, used to build
   # $RPM_BUILD_ROOT%{_datadir} are the files to package
@@ -777,32 +776,6 @@ Contributed as effort from OSG-Storage.
 
 %post xrootd-storage
 %customize_probeconfig -d xrootd-storage
-
-%package bdii-status
-Summary: Probes that emits records of BDII status
-Group: Applications/System
-Requires: %{name}-common >= %{version}-%{release}
-Requires: %{name}-services >= %{version}-%{release}
-Requires: /usr/bin/ldapsearch
-License: See LICENSE.
-
-%description bdii-status
-Records a BDII's status into the Gratia accounting system.
-Creates a record for CEs, SEs, and Subcluster objects.
-Contributed by University of Nebraska Lincoln.
-
-%files bdii-status
-%defattr(-,root,root,-)
-%{default_prefix}/gratia/bdii-status/ProbeConfig
-%{default_prefix}/gratia/bdii-status/bdii_subcluster_record
-%{default_prefix}/gratia/bdii-status/bdii_cese_record
-%dir %{default_prefix}/gratia/bdii-status
-%{python_sitelib}/gratia/bdii_status
-%config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/gratia/bdii-status/ProbeConfig
-%config(noreplace) %{_sysconfdir}/cron.d/gratia-probe-bdii-status.cron
-
-%post bdii-status
-%customize_probeconfig -d bdii-status
 
 %package onevm
 Summary: Gratia OSG accounting system probe for OpenNebula VM accounting.
