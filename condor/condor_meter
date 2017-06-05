@@ -597,7 +597,6 @@ def classadToJUR(classad):
             return True
         return False
           
-
     if 'ClusterId' not in classad:
         DebugPrint(2, "No data passed to classadToJUR: %s" % str(classad))
         raise Exception("No data passed to classadToJUR: %s" % str(classad))
@@ -711,7 +710,19 @@ def classadToJUR(classad):
 
     setIfExists(r.Queue, classad, "JobUniverse", "Condor's JobUniverse field", setstr=True)
     setIfExists(r.NodeCount, classad, 'MaxHosts', "max")
-
+    ########################################################################################
+    ########################################################################################
+    # Code added to send to arbitrary Ads SOFTWARE-2714
+    ArbitraryJobAds = GratiaCore.Config.getConfigAttribute("ArbitraryJobAdAttributes")
+    DebugPrint(5, "ArbitraryJobAd: %s" % str(ArbitraryJobAds))
+    Arbirtray_adlist = ArbitraryJobAds.split(",")
+    DebugPrint(5, "Going through list: %s " % Arbirtray_adlist)
+    for arbitaryAd in  Arbirtray_adlist:
+        if arbitaryAd in classad:
+            DebugPrint(5, "Arbitrary ad: %s found in classAd" % arbitaryAd) 
+            DebugPrint(5, "Value of arbitrary classAd: %s" % str(classad[str(arbitaryAd)]))
+            r.AdditionalInfo(arbitaryAd, str(classad[str(arbitaryAd)]))
+    ########################################################################################
     if 'MachineAttrCpus0' in classad:
         r.Processors(classad['MachineAttrCpus0'], metric="max")
     elif 'RequestCpus' in classad:
@@ -770,6 +781,7 @@ def classadToJUR(classad):
         if isinstance(evaluated, types.StringType):
             r.SiteName(evaluated)
             r.ProbeName('%s-%s' % (r.GetProbeName(), evaluated))
+    
 
     networkPhaseUnit = classad.get('RemoteWallClockTime', '')
     total_network = 0
