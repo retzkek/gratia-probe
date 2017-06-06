@@ -719,8 +719,8 @@ def classadToJUR(classad):
     #ArbitraryAttrslist = ArbitraryJobAds.split(",")
     for arbitraryAttr in  ArbitraryAttrslist:
         if arbitraryAttr in classad:
-            DebugPrint(5, "Arbitrary attribute: %s found with value %s" % (arbitraryAttr, str(classad[str(arbitraryAttr)]))) 
-            r.AdditionalInfo(arbitraryAttr, str(classad[str(arbitraryAttr)]))
+            DebugPrint(5, "Arbitrary attribute: %s found with value %s" % (arbitraryAttr, classad.eval(str(arbitraryAttr)))) 
+            r.AdditionalInfo(arbitraryAttr, classad.eval(str(arbitraryAttr)))
     ########################################################################################
     if 'MachineAttrCpus0' in classad:
         r.Processors(classad['MachineAttrCpus0'], metric="max")
