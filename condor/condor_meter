@@ -714,12 +714,12 @@ def classadToJUR(classad):
     ########################################################################################
     # Code added to send to arbitrary Ads SOFTWARE-2714
     ArbitraryJobAttrs = GratiaCore.Config.getConfigAttribute("ExtraAttributes")
-    DebugPrint(5, "ArbitraryJobAd: %s" % str(ArbitraryJobAttrs))
+    DebugPrint(5, "Arbitrary Job Attributes: %s" % str(ArbitraryJobAttrs))
     ArbitraryAttrslist = re.split(",?\s?", ArbitraryJobAttrs)
     #ArbitraryAttrslist = ArbitraryJobAds.split(",")
     for arbitraryAttr in  ArbitraryAttrslist:
         if arbitraryAttr in classad:
-            DebugPrint(5, "Arbitrary ad: %s found in classAd, value %s" % (arbitraryAttr, str(classad[str(arbitraryAttr)]))) 
+            DebugPrint(5, "Arbitrary attribute: %s found with value %s" % (arbitraryAttr, str(classad[str(arbitraryAttr)]))) 
             r.AdditionalInfo(arbitraryAttr, str(classad[str(arbitraryAttr)]))
     ########################################################################################
     if 'MachineAttrCpus0' in classad:
