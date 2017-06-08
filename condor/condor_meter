@@ -36,7 +36,6 @@ max_batch_size = 500
 
 min_start_time = time.time() - 120*86400
 
-
 # --- classes -------------------------------------------------------------------------
 
 class IgnoreClassadException(Exception):
@@ -716,7 +715,7 @@ def classadToJUR(classad):
     ArbitraryJobAttrs = GratiaCore.Config.getConfigAttribute("ExtraAttributes")
     DebugPrint(5, "Arbitrary Job Attributes: %s" % str(ArbitraryJobAttrs))
     ArbitraryAttrslist = re.split(",?\s?", ArbitraryJobAttrs)
-    #ArbitraryAttrslist = ArbitraryJobAds.split(",")
+    DebugPrint(0, "ArbritaryList: %s" % ArbitraryAttrslist)
     for arbitraryAttr in  ArbitraryAttrslist:
         if arbitraryAttr in classad:
             DebugPrint(5, "Arbitrary attribute: %s found with value %s" % (arbitraryAttr, classad.eval(str(arbitraryAttr)))) 
@@ -781,7 +780,6 @@ def classadToJUR(classad):
             r.SiteName(evaluated)
             r.ProbeName('%s-%s' % (r.GetProbeName(), evaluated))
     
-
     networkPhaseUnit = classad.get('RemoteWallClockTime', '')
     total_network = 0
     for attr, val in classad.items():
