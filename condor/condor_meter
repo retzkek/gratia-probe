@@ -36,6 +36,7 @@ max_batch_size = 500
 
 min_start_time = time.time() - 120*86400
 
+
 # --- classes -------------------------------------------------------------------------
 
 class IgnoreClassadException(Exception):
@@ -595,6 +596,7 @@ def classadToJUR(classad):
         if slot_ratio > 1000:
             return True
         return False
+
           
     if 'ClusterId' not in classad:
         DebugPrint(2, "No data passed to classadToJUR: %s" % str(classad))
@@ -709,6 +711,7 @@ def classadToJUR(classad):
 
     setIfExists(r.Queue, classad, "JobUniverse", "Condor's JobUniverse field", setstr=True)
     setIfExists(r.NodeCount, classad, 'MaxHosts', "max")
+
     ########################################################################################
     ########################################################################################
     # Code added to send to arbitrary Ads SOFTWARE-2714
