@@ -596,6 +596,7 @@ def classadToJUR(classad):
         if slot_ratio > 1000:
             return True
         return False    
+    
     if 'ClusterId' not in classad:
         DebugPrint(2, "No data passed to classadToJUR: %s" % str(classad))
         raise Exception("No data passed to classadToJUR: %s" % str(classad))
