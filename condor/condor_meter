@@ -595,8 +595,8 @@ def classadToJUR(classad):
         slot_ratio = classad[field] / (float(classad['CumulativeSlotTime']) + 1)
         if slot_ratio > 1000:
             return True
-        return False    
-    
+        return False
+        
 
     if 'ClusterId' not in classad:
         DebugPrint(2, "No data passed to classadToJUR: %s" % str(classad))
