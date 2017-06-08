@@ -597,6 +597,7 @@ def classadToJUR(classad):
             return True
         return False    
     
+
     if 'ClusterId' not in classad:
         DebugPrint(2, "No data passed to classadToJUR: %s" % str(classad))
         raise Exception("No data passed to classadToJUR: %s" % str(classad))
