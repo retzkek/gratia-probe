@@ -596,8 +596,7 @@ def classadToJUR(classad):
         if slot_ratio > 1000:
             return True
         return False
-
-          
+    
     if 'ClusterId' not in classad:
         DebugPrint(2, "No data passed to classadToJUR: %s" % str(classad))
         raise Exception("No data passed to classadToJUR: %s" % str(classad))
@@ -782,7 +781,7 @@ def classadToJUR(classad):
         if isinstance(evaluated, types.StringType):
             r.SiteName(evaluated)
             r.ProbeName('%s-%s' % (r.GetProbeName(), evaluated))
-    
+
     networkPhaseUnit = classad.get('RemoteWallClockTime', '')
     total_network = 0
     for attr, val in classad.items():
