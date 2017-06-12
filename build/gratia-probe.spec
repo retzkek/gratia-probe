@@ -1,7 +1,7 @@
 Name:               gratia-probe
 Summary:            Gratia OSG accounting system probes
 Group:              Applications/System
-Version:            1.17.5
+Version:            1.18.0
 Release:            1%{?dist}
 
 License:            GPL
@@ -1021,6 +1021,9 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Mon Jun 12 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.18.0-1
+- Include arbitrary ClassAd attributes in Gratia usage records (SOFTWARE-2714)
+
 * Mon Apr 24 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.17.5-1
 - fix eval call in condor probe (SOFTWARE-2636)
 
