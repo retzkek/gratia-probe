@@ -726,6 +726,8 @@ def classadToJUR(classad):
     ########################################################################################
     if 'MachineAttrCpus0' in classad:
         r.Processors(classad['MachineAttrCpus0'], metric="max")
+    elif 'MATCH_EXP_JOB_GLIDEIN_Cpus' in classad:
+        r.Processors(int(classad['MATCH_EXP_JOB_GLIDEIN_Cpus']), metric="max")
     elif 'RequestCpus' in classad:
         r.Processors(classad['RequestCpus'], metric="max")
     else:
