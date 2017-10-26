@@ -174,20 +174,25 @@ install -d $RPM_BUILD_ROOT/%{_sysconfdir}/gratia
     fi
 
     # Collector strings
-    if [ $probe == "enstore-*" -o $probe == "dCache-storagegroup" ]; then
+    case $probe in
+    enstore-* | dCache-storagegroup )
       # must be first to catch enstrore-transfer/storage
       endpoint=%{enstore_collector}:%{default_collector_port}
       ssl_endpoint=%{enstore_collector}:%{ssl_port}
-    elif [ $probe == "*-transfer" -o $probe == "*-storage" ]; then
+      ;;
+    *-transfer | *-storage )
       endpoint=%{osg_transfer_collector}:%{default_collector_port}
       ssl_endpoint=%{osg_transfer_collector}:%{ssl_port}
-    elif [ $probe == metric ]; then
+      ;;
+    metric )
       endpoint=%{osg_metric_collector}:%{metric_port}
       ssl_endpoint=%{osg_metric_collector}:%{ssl_port}
-    else
+      ;;
+    * )
       endpoint=%{osg_collector}:%{default_collector_port}
       ssl_endpoint=%{osg_collector}:%{ssl_port}
-    fi
+      ;;
+    esac
     sed -i -e "s#@PROBE_NAME@#$probe#" \
            -e "s#@COLLECTOR_ENDPOINT@#$endpoint#" \
            -e "s#@SSL_ENDPOINT@#$ssl_endpoint#" \
