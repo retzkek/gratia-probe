@@ -94,7 +94,6 @@ Prefix: /etc
 %setup -q -D -T -a 13
 %setup -q -D -T -a 14
 %setup -q -D -T -a 15
-%setup -q -D -T -a 16
 %setup -q -D -T -a 17
 %setup -q -D -T -a 18 
 %setup -q -D -T -a 19
