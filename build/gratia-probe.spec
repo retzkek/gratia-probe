@@ -1,7 +1,7 @@
 Name:               gratia-probe
 Summary:            Gratia OSG accounting system probes
 Group:              Applications/System
-Version:            1.18.1
+Version:            1.18.2
 Release:            1%{?dist}
 
 License:            GPL
@@ -999,6 +999,10 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Mon Oct 30 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.18.2-1
+- Drop bdii-status probe (SOFTWARE-2660)
+- Fix transfer collector strings in ProbeConfig (SOFTWARE-2560)
+
 * Mon Jun 26 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.18.1-1
 - Add support for WholeNodeJobs for HTCondor-CE (SOFTWARE-2783)
 
