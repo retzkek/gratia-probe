@@ -2,7 +2,7 @@ Name:               gratia-probe
 Summary:            Gratia OSG accounting system probes
 Group:              Applications/System
 Version:            1.18.2
-Release:            1%{?dist}
+Release:            2%{?dist}
 
 License:            GPL
 Group:              Applications/System
@@ -420,6 +420,7 @@ Group: Applications/System
 Requires: pyOpenSSL
 Requires(post): chkconfig
 Requires(preun): chkconfig
+Obsoletes: gratia-probe-bdii-status < 1.18.2-1
 
 %description common
 Common files and examples for Gratia OSG accounting system probes.
@@ -998,6 +999,9 @@ The dCache storagegroup probe for the Gratia OSG accounting system.
 %endif # noarch
 
 %changelog
+* Thu Nov 09 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.18.2-2
+- Add Obsoletes for bdii-status probe (SOFTWARE-2660)
+
 * Mon Oct 30 2017 Carl Edquist <edquist@cs.wisc.edu> - 1.18.2-1
 - Drop bdii-status probe (SOFTWARE-2660)
 - Fix transfer collector strings in ProbeConfig (SOFTWARE-2560)
