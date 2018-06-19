@@ -817,6 +817,7 @@ Gratia OSG accounting system probe for providing VM accounting.
 Summary: Gratia OSG accounting system probe for AWS VM accounting.
 Group:Applications/System
 Requires: %{name}-common >= %{version}-%{release}
+Requires: python2-boto3
 License: See LICENSE.
 
 %description awsvm
@@ -830,7 +831,8 @@ Gratia OSG accounting system probe for providing VM accounting in aws.
 %{python_sitelib}/gratia/awsvm
 %{default_prefix}/gratia/awsvm/aws-gratia-probe
 %{default_prefix}/gratia/awsvm/aws_demand_data_20151102.json
-%{default_prefix}/gratia/awsvm/README
+%{default_prefix}/gratia/awsvm/aws_demand_data_20180606.json
+%{default_prefix}/gratia/awsvm/README.md
 
 %config(noreplace) %verify(not md5 size mtime) %{_sysconfdir}/gratia/awsvm/ProbeConfig
 %config(noreplace) %{_sysconfdir}/cron.d/gratia-probe-awsvm.cron
