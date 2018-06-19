@@ -54,12 +54,12 @@ the data at any time, so it is advised to manually download and review
 the data on a regular basis, or whenever a change is announced in
 the [AWS News Blog](https://aws.amazon.com/blogs/aws/).
 
-### Regins
+### Regions
 
 The AWS regions to query for instances can be set as a comma-delimited list
 in `AWSRegions`, e.g.
 
     AWSRegions="us-east-1,us-west-1,us-west-2"
 
-or if left blank the proble will attemp to query the complete region
+or if left blank the probe will attemp to query the complete region
 list from AWS and every region will be queried for running VMs.
